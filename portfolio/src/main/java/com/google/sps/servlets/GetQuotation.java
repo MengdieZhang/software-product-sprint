@@ -44,7 +44,6 @@ public final class GetQuotation extends HttpServlet {
 
     // Send the JSON as the response
     response.setContentType("text/html;");
-    response.setContentType("application/json;");
     response.getWriter().println(json);
   }
 }

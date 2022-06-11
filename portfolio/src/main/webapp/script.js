@@ -81,11 +81,11 @@ async function getRandomQuo() {
     // reference to create HTML.
     const str = await responseFromServer.json();
 
-    // Now we can reference the fields in stats!
-    console.log(str);
+    const randomQuo = str[Math.floor(Math.random()*str.length)];
+    console.log(randomQuo);
 
-    const dateContainer = document.getElementById('quotation-container');
-    dateContainer.innerText = str;
+    const quoContainer = document.getElementById('quotation-container');
+    quoContainer.innerText = randomQuo;
 
   }
   
