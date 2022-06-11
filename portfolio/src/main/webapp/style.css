@@ -7,3 +7,8 @@
 #greeting-container {
   margin-top: 20px;
 }
+
+#random-image-container {
+    max-width: 60%;
+    height: auto;
+  }

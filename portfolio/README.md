@@ -1,10 +1,3 @@
 This repo contains Mengdie ZHang's portfolio and SPS projects
 
-This directory is where you'll write all of your code!
-
-By default it contains a barebones portfolio web app. To run a local server,
-execute this command:
-
-```
-mvn package exec:java
-```
+The portfolio websit is https://mzhang-sps-summer22.appspot.com/
