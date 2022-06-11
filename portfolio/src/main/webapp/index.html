@@ -23,6 +23,21 @@
       <p><a href="https://www.linkedin.com/in/mengdie-zhang-822704162/">LinkedIn</a></p>
       <p><a href="https://github.com/MengdieZhang/">GitHub</a></p>
       <p>Click <a href="random.html">here</a> to see a random anime I like !</p>
+      
+      <form action="/form-handler" method="POST">
+        <p>Leave Your Message Here:</p>
+        <textarea name="text-input">Hi</textarea>
+        <br/>
+        <input type="submit"/>
+      </form>
+
+      <h2>Server Date Example</h2>
+      <p>Click this button to see the server's current date.</p>
+      <button onclick="showServerTime();">
+        Get server date
+      </button>
+      <p id="date-container"></p>
+      <p>Click <a href="/date">here</a> to see the server response directly.</p>
     </div>
   </body>
 </html>
