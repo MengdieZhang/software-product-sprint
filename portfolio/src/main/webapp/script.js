@@ -41,3 +41,51 @@ async function showServerTime() {
     const dateContainer = document.getElementById('date-container');
     dateContainer.innerText = textFromResponse;
   }
+
+/** Fetches stats from the server and adds them to the page. */
+async function getServerStats() {
+    const responseFromServer = await fetch('/server-stats');
+    // The json() function returns an object that contains fields that we can
+    // reference to create HTML.
+    const stats = await responseFromServer.json();
+
+    // Now we can reference the fields in stats!
+    console.log(stats.x);
+    console.log(stats.y);
+    console.log(stats.z);
+  
+    const statsListElement = document.getElementById('server-stats-container');
+    statsListElement.innerHTML = '';
+  
+    statsListElement.appendChild(
+        createListElement('Start time: ' + stats.startTime));
+    statsListElement.appendChild(
+        createListElement('Current time: ' + stats.currentTime));
+    statsListElement.appendChild(
+        createListElement('Max memory: ' + stats.maxMemory));
+    statsListElement.appendChild(
+        createListElement('Used memory: ' + stats.usedMemory));
+  }
+  
+  /** Creates an <li> element containing text. */
+  function createListElement(text) {
+    const liElement = document.createElement('li');
+    liElement.innerText = text;
+    return liElement;
+  }
+
+  /** Fetches quotation from the server and adds them to the page. */
+async function getRandomQuo() {
+    const responseFromServer = await fetch('/quotation');
+    // The json() function returns an object that contains fields that we can
+    // reference to create HTML.
+    const str = await responseFromServer.json();
+
+    // Now we can reference the fields in stats!
+    console.log(str);
+
+    const dateContainer = document.getElementById('quotation-container');
+    dateContainer.innerText = str;
+
+  }
+  
