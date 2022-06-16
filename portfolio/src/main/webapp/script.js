@@ -88,4 +88,52 @@ async function getRandomQuo() {
     quoContainer.innerText = randomQuo;
 
   }
+
+/* 
+async function loadMessages() {
+    const responseFromServer = await fetch('/list-messages');
+    const messages = await responseFromServer.json();
+
+    const messageContainer = document.getElementById('messages-container');
+    messageContainer.innerText = messages;
+  }
+  */
+/** Fetches all messages from the server and adds them to the DOM. **/
+function loadMessages() {
+    fetch('/list-messages').then(response => response.json()).then((messages) => {
+    const messageListElement = document.getElementById('messages-container');
+    messages.forEach((message) => {
+        messageListElement.appendChild(createTaskElement(message));
+      })
+    });
+}
+
+/** Creates an element that represents a message, including its delete button. */
+function createTaskElement(message) {
+    const messageElement = document.createElement('li');
+    messageElement.className = 'message';
+  
+    const titleElement = document.createElement('span');
+    titleElement.innerText = message.textValue;
+  
+    const deleteButtonElement = document.createElement('button');
+    deleteButtonElement.innerText = 'Delete';
+    deleteButtonElement.addEventListener('click', () => {
+      deleteMessage(message);
+  
+      // Remove the task from the DOM.
+      messageElement.remove();
+    });
+  
+    messageElement.appendChild(titleElement);
+    messageElement.appendChild(deleteButtonElement);
+    return messageElement;
+  }
+
+  /** Tells the server to delete the message. */
+function deleteMessage(message) {
+    const params = new URLSearchParams();
+    params.append('id', message.id);
+    fetch('/delete-task', {method: 'POST', body: params});
+  }
   
