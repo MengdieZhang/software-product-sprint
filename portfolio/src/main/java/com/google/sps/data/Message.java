@@ -14,13 +14,14 @@
 
 package com.google.sps.data;
 
-/** An item on a todo list. */
+/** Build Message Class. */
 public final class Message {
-
+/**class fields. */
   private final long id;
   private final String textValue;
   private final long timestamp;
-
+  
+/**class constructor */
   public Message(long id, String textValue, long timestamp) {
     this.id = id;
     this.textValue = textValue;

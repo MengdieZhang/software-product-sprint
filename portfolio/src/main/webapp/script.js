@@ -89,15 +89,6 @@ async function getRandomQuo() {
 
   }
 
-/* 
-async function loadMessages() {
-    const responseFromServer = await fetch('/list-messages');
-    const messages = await responseFromServer.json();
-
-    const messageContainer = document.getElementById('messages-container');
-    messageContainer.innerText = messages;
-  }
-  */
 /** Fetches all messages from the server and adds them to the DOM. **/
 function loadMessages() {
     fetch('/list-messages').then(response => response.json()).then((messages) => {
@@ -119,9 +110,9 @@ function createTaskElement(message) {
     const deleteButtonElement = document.createElement('button');
     deleteButtonElement.innerText = 'Delete';
     deleteButtonElement.addEventListener('click', () => {
-      deleteMessage(message);
+        delete message;
   
-      // Remove the task from the DOM.
+      // Remove an element from the DOM.
       messageElement.remove();
     });
   
@@ -129,11 +120,3 @@ function createTaskElement(message) {
     messageElement.appendChild(deleteButtonElement);
     return messageElement;
   }
-
-  /** Tells the server to delete the message. */
-function deleteMessage(message) {
-    const params = new URLSearchParams();
-    params.append('id', message.id);
-    fetch('/delete-task', {method: 'POST', body: params});
-  }
-  
