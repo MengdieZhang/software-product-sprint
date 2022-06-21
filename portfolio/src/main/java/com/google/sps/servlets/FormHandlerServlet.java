@@ -13,7 +13,7 @@ import com.google.cloud.datastore.Entity;
 import com.google.cloud.datastore.FullEntity;
 import com.google.cloud.datastore.KeyFactory;
 import org.jsoup.Jsoup;
-//import org.jsoup.safety.Whitelist;
+
 
 /** Servlet that processes text. */
 @WebServlet("/form-handler")
@@ -24,7 +24,6 @@ public class FormHandlerServlet extends HttpServlet {
 
     // Get the value entered in the form.
     String textValue = request.getParameter("text-input");
-    //String textValue = Jsoup.clean(request.getParameter("title"), Whitelist.none());
     long timestamp = System.currentTimeMillis();
 
     // Print the value so you can see it in the server logs.
