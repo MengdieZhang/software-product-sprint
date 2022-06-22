@@ -12,3 +12,8 @@
     max-width: 60%;
     height: auto;
   }
+
+#container {
+    margin-top: 20px;
+  }
+
